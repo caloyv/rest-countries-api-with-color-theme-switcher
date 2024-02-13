@@ -122,7 +122,7 @@ export default function Homepage() {
           />
           <select
             name="filter"
-            className="shadow-sm rounded text-sm px-3 block h-14 w-52 dark:bg-dark-blue dark:text-light-white "
+            className="shadow-sm rounded text-sm px-3 block h-14 w-52 bg-white dark:bg-dark-blue dark:text-light-white "
             value={formData.filter}
             onChange={handleChange}
           >

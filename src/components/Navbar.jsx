@@ -30,9 +30,12 @@ const Navbar = () => {
 
   return (
     <header
-      className={`px-3 md:!px-10 dark:bg-dark-blue dark:text-light-white h-20 flex justify-between items-center`}
+      className={`px-3 md:!px-16  dark:bg-dark-blue dark:text-light-white h-20 flex justify-between items-center`}
     >
-      <Link to="/rest-countries-api-with-color-theme-switcher" className="text-sm font-extrabold sm:text-xl">
+      <Link
+        to="/rest-countries-api-with-color-theme-switcher"
+        className="text-sm font-extrabold sm:text-xl "
+      >
         Where in the world?
       </Link>
       <button

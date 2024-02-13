@@ -54,7 +54,7 @@ export default function Homepage() {
     // Check if there are no countries found
     if (filteredCountries.length === 0) {
       return (
-        <h2 className="text-center col-span-4 font-bold">No countries found</h2>
+        <h2 className="text-center col-span-4 font-bold dark:text-light-white">No countries found</h2>
       );
     }
 

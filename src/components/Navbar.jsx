@@ -32,7 +32,7 @@ const Navbar = () => {
     <header
       className={`px-3 md:!px-10 dark:bg-dark-blue dark:text-light-white h-20 flex justify-between items-center`}
     >
-      <Link to="/" className="text-sm font-extrabold sm:text-lg">
+      <Link to="/rest-countries-api-with-color-theme-switcher" className="text-sm font-extrabold sm:text-lg">
         Where in the world?
       </Link>
       <button

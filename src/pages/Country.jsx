@@ -149,10 +149,10 @@ const Country = () => {
 
   return (
     <main className="bg-light-white dark:bg-very-dark-blue px-4 pt-5 sm:!px-12 md:!px-14 lg:!px-16">
-      <div className="button-shadow w-24 rounded-sm">
+      <div className="button-shadow w-[120px] rounded-sm">
         <Link
           to="/rest-countries-api-with-color-theme-switcher"
-          className="flex justify-center items-center gap-3  dark:bg-dark-blue dark:text-light-white py-1  mb-14 font-medium text-sm rounded"
+          className="flex justify-center items-center gap-3  dark:bg-dark-blue dark:text-light-white py-2  mb-14 font-medium text-sm rounded"
           relative="path"
           preventScrollReset={true}
         >

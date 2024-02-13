@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -34,12 +34,12 @@ const Navbar = () => {
     >
       <Link
         to="/rest-countries-api-with-color-theme-switcher"
-        className="text-sm font-extrabold sm:text-xl "
+        className="text-sm font-extrabold sm:text-2xl "
       >
         Where in the world?
       </Link>
       <button
-        className="text-sm text-gray-800 flex justify-center items-center gap-2"
+        className="text-sm text-gray-800 font-bold flex justify-center items-center gap-2"
         onClick={toggleTheme}
       >
         <FontAwesomeIcon icon={theme ? faSun : faMoon} />{" "}

@@ -131,7 +131,7 @@ const Country = () => {
                 borderCountries.map((border, index) => (
                   <Link
                     key={index}
-                    to={`/${border[0].cca3}`}
+                    to={`/rest-countries-api-with-color-theme-switcher/${border[0].cca3}`}
                     className="dark:bg-dark-blue dark:text-light-white px-4 py-1 button-shadow rounded-sm"
                   >
                     {border[0].name.common}

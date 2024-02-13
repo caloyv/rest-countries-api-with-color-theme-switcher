@@ -9,7 +9,7 @@ import Country, {loader as CountryLoader} from "./pages/Country";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements( 
-      <Route path="/rest-countries-api-with-color-theme-switcher" element={<Layout />}>
+      <Route path="/" element={<Layout />}>
         <Route index element={<Homepage />} loader={HomepageLoader}  />
         <Route path=":country"element={<Country />} loader={CountryLoader}  />
       </Route>

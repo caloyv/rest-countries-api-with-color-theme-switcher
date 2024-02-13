@@ -96,8 +96,8 @@ export default function Homepage() {
 
   return (
     <main className="bg-light-white dark:bg-very-dark-blue px-3 lg:!px-16 lg:flex lg:flex-col lg:justify-center lg:items-center">
-      <div className="search-bar w-full h-30 py-4 max-w-[1440px]">
-        <div className="sm:flex sm:justify-between relative">
+      <div className="search-bar w-full h-30 py-12 max-w-[1440px]">
+        <div className="sm:flex sm:justify-between sm:items-center relative">
           <FontAwesomeIcon
             icon={faSearch}
             className="absolute top-[20px] left-[30px] dark:text-light-white"
@@ -106,7 +106,7 @@ export default function Homepage() {
             name="searchBar"
             type="text"
             placeholder="Seach for a country..."
-            className="block p-4 !pl-16 w-full max-w-[500px] mr-2 mb-5 h-14 shadow-sm rounded text-sm dark:bg-dark-blue dark:text-light-white focus:bg-transparent"
+            className="block p-4 !pl-16 w-full max-w-[500px] mr-2 mb-5 h-14 sm:!m-0 shadow-sm rounded text-sm dark:bg-dark-blue dark:text-light-white focus:bg-transparent"
             value={formData.searchBar}
             onChange={handleChange}
             autoComplete="off"

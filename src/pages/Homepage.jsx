@@ -40,62 +40,71 @@ export default function Homepage() {
     const displayCountries = formData.filter
       ? loadedCountries.filter((country) => country.region === formData.filter)
       : loadedCountries;
-    // console.log(displayCountries)
 
-    const renderElements = displayCountries
+    const filteredCountries = displayCountries
       .sort((a, b) => (a.name["common"] > b.name["common"] ? 1 : -1))
       .filter((country) =>
         formData.searchBar.toLowerCase() === ""
           ? country
-          : country.name["common"].toLowerCase().includes(formData.searchBar)
-      )
-      .map((country) => {
-        return (
-          <div
-            className="countries-container mb-5 flex flex-col justify-center items-center "
-            key={country.name["common"]}
+          : country.name["common"]
+              .toLowerCase()
+              .includes(formData.searchBar.toLowerCase())
+      );
+
+    // Check if there are no countries found
+    if (filteredCountries.length === 0) {
+      return (
+        <h2 className="text-center col-span-4 font-bold">No countries found</h2>
+      );
+    }
+
+    const renderElements = filteredCountries.map((country) => {
+      return (
+        <div
+          className="countries-container mb-5 flex flex-col justify-center items-center "
+          key={country.name["common"]}
+        >
+          <Link
+            to={country.cca3}
+            className="country-card w-64 shadow-lg rounded-md dark:bg-dark-blue dark:text-light-white "
           >
-            <Link
-              to={country.cca3}
-              className="country-card w-64 shadow-lg rounded-md dark:bg-dark-blue dark:text-light-white "
-            >
-              <div className="flag-imgst w-full h-40 rounded-t">
-                <img
-                  src={country.flags["png"]}
-                  alt="flag"
-                  className="w-full h-full rounded-t-md"
-                />
-              </div>
-              <div className="country-desc p-4 h-full dark:bg-dark-blue dark:text-light-white min-h-[180px] rounded-b-md">
-                <p className="country-name pb-3 text-lg font-bold">
-                  {country.name["common"]}
-                </p>
-                <p className="country-population font-semibold text-sm">
-                  Population:{" "}
-                  <span className="font-normal">
-                    {country.population.toLocaleString()}
-                  </span>
-                </p>
-                <p className="country-region font-semibold text-sm">
-                  Region: <span className="font-normal">{country.region}</span>
-                </p>
-                <p className="country-capital font-semibold pb-3 text-sm">
-                  Capital:{" "}
-                  <span className="font-normal">
-                    {country.capital ? country.capital : "None"}
-                  </span>
-                </p>
-              </div>
-            </Link>
-          </div>
-        );
-      });
+            <div className="flag-imgst w-full h-40 rounded-t">
+              <img
+                src={country.flags["png"]}
+                alt="flag"
+                className="w-full h-full rounded-t-md"
+              />
+            </div>
+            <div className="country-desc p-4 h-full dark:bg-dark-blue dark:text-light-white min-h-[180px] rounded-b-md">
+              <p className="country-name pb-3 text-lg font-bold">
+                {country.name["common"]}
+              </p>
+              <p className="country-population font-semibold text-sm">
+                Population:{" "}
+                <span className="font-normal">
+                  {country.population.toLocaleString()}
+                </span>
+              </p>
+              <p className="country-region font-semibold text-sm">
+                Region: <span className="font-normal">{country.region}</span>
+              </p>
+              <p className="country-capital font-semibold pb-3 text-sm">
+                Capital:{" "}
+                <span className="font-normal">
+                  {country.capital ? country.capital : "None"}
+                </span>
+              </p>
+            </div>
+          </Link>
+        </div>
+      );
+    });
 
     return renderElements;
   }
 
   return (
-    <main className="bg-light-white dark:bg-very-dark-blue px-3 md:!px-16 lg:flex lg:flex-col lg:justify-center lg:items-center">
+    <main className="bg-light-white dark:bg-very-dark-blue px-3 md:!px-16 lg:flex lg:flex-col  lg:items-center">
       <div className="search-bar w-full h-30 py-12 max-w-[1440px]">
         <div className="sm:flex sm:justify-between sm:items-center relative">
           <FontAwesomeIcon

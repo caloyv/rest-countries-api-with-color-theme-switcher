@@ -34,7 +34,7 @@ const Navbar = () => {
     >
       <Link
         to="/rest-countries-api-with-color-theme-switcher"
-        className="text-sm font-extrabold sm:text-2xl "
+        className="text-sm font-extrabold sm:text-xl md:text-2xl "
       >
         Where in the world?
       </Link>

@@ -106,7 +106,7 @@ export default function Homepage() {
   return (
     <main className="bg-light-white dark:bg-very-dark-blue px-3 md:!px-16 lg:flex lg:flex-col  lg:items-center">
       <div className="search-bar w-full h-30 py-12 max-w-[1440px]">
-        <div className="sm:flex sm:justify-between sm:items-center relative">
+        <div className="sm:flex sm:justify-between sm:items-center sm:gap-2 relative">
           <FontAwesomeIcon
             icon={faSearch}
             className="absolute top-[20px] left-[30px] dark:text-light-white"

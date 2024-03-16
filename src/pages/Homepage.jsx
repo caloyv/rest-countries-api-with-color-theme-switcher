@@ -1,6 +1,5 @@
 import { Suspense, useState } from "react";
 import { Await, Link, defer, useLoaderData } from "react-router-dom";
-import Countries from "../components/Countries";
 import { getApiAll } from "../api";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -61,12 +60,12 @@ export default function Homepage() {
     const renderElements = filteredCountries.map((country) => {
       return (
         <div
-          className="countries-container mb-5 flex flex-col justify-center items-center "
+          className="flex flex-col justify-center items-center "
           key={country.name["common"]}
         >
           <Link
             to={country.cca3}
-            className="country-card w-64 shadow-lg rounded-md dark:bg-dark-blue dark:text-light-white "
+            className="country-card w-64 md:max-w-[315px] md:w-full shadow-lg rounded-md dark:bg-dark-blue dark:text-light-white transition-transform hover:scale-105"
           >
             <div className="flag-imgst w-full h-40 rounded-t">
               <img
@@ -104,7 +103,7 @@ export default function Homepage() {
   }
 
   return (
-    <main className="bg-light-white dark:bg-very-dark-blue px-3 md:!px-16 lg:flex lg:flex-col  lg:items-center">
+    <main className="bg-light-white transition-colors dark:bg-very-dark-blue px-3 md:!px-16 lg:flex lg:flex-col  lg:items-center ">
       <div className="search-bar w-full h-30 py-12 max-w-[1440px]">
         <div className="sm:flex sm:justify-between sm:items-center sm:gap-2 relative">
           <FontAwesomeIcon
@@ -115,18 +114,20 @@ export default function Homepage() {
             name="searchBar"
             type="text"
             placeholder="Seach for a country..."
-            className="block p-4 !pl-16 w-full max-w-[500px] mr-2 mb-5 h-14 sm:!m-0 shadow-sm rounded text-sm dark:bg-dark-blue dark:text-light-white focus:bg-transparent"
+            className="block p-4 !pl-16 w-full max-w-[600px] mr-2 mb-5 h-14 sm:!m-0 shadow-sm rounded text-sm dark:bg-dark-blue dark:text-light-white focus:bg-transparent"
             value={formData.searchBar}
             onChange={handleChange}
             autoComplete="off"
           />
           <select
             name="filter"
-            className="shadow-sm rounded text-sm px-3 block h-14 w-52 bg-white dark:!bg-dark-blue dark:text-light-white "
+            className="shadow-sm rounded text-sm px-3 block h-14 w-52 bg-white dark:!bg-dark-blue dark:text-light-white cursor-pointer"
             value={formData.filter}
             onChange={handleChange}
           >
-            <option value="">Filter by Region</option>
+            {/* <option value=""></option> */}
+            <option value="" className="hidden">Filter by Region</option>
+            <option value="" >All</option>
             <option value="Africa">Africa</option>
             <option value="Americas">America</option>
             <option value="Asia">Asia</option>
@@ -135,7 +136,7 @@ export default function Homepage() {
           </select>
         </div>
       </div>
-      <section className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center justify-center max-w-[1440px]">
+      <section className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center justify-center max-w-[1440px] gap-5">
         <Suspense
           fallback={
             <>
@@ -157,7 +158,6 @@ export default function Homepage() {
         >
           <Await resolve={countriesPromise}>{renderCountries}</Await>
         </Suspense>
-        <Countries />
       </section>
     </main>
   );

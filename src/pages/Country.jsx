@@ -45,8 +45,7 @@ const Country = () => {
   }, [useParams().country]);
 
   function renderCountryElements(country) {
-    // console.log(borderCountries instanceof Array);
-    // console.log(country)
+
     const currency = country[0].currencies
       ? Object.values(country[0].currencies)
       : "N/A";
@@ -114,7 +113,9 @@ const Country = () => {
             </div>
           </div>
           <div className="lg:flex lg:justify-center lg:items-center lg:mt-8">
-            <h2 className="my-4 lg:!my-0 lg:w-48 font-bold">Border Countries: </h2>
+            <h2 className="my-4 lg:!my-0 lg:w-48 font-bold">
+              Border Countries:{" "}
+            </h2>
             <div className="border-countries flex gap-2 flex-wrap pb-4 lg:!pb-0 lg:w-[510px]">
               {loadingBorderCountries ? (
                 <span>
@@ -132,7 +133,7 @@ const Country = () => {
                   <Link
                     key={index}
                     to={`/rest-countries-api-with-color-theme-switcher/${border[0].cca3}`}
-                    className="dark:bg-dark-blue dark:text-light-white px-4 py-1 button-shadow rounded-sm"
+                    className="dark:bg-dark-blue dark:text-light-white px-4 py-1 button-shadow rounded-sm transition-transform hover:scale-105"
                   >
                     {border[0].name.common}
                   </Link>
@@ -148,11 +149,11 @@ const Country = () => {
   }
 
   return (
-    <main className="bg-light-white dark:bg-very-dark-blue px-4 pt-5 sm:!px-12 md:!px-14 lg:!px-16">
-      <div className="button-shadow w-[120px] rounded-sm">
+    <main className="bg-light-white transition-colors dark:bg-very-dark-blue px-4 py-5 sm:!px-12 md:!px-14 lg:!px-16">
+      <div className="button-shadow w-[120px] rounded-sm transition-transform hover:scale-105">
         <Link
-          to="/rest-countries-api-with-color-theme-switcher"
-          className="flex justify-center items-center gap-3  dark:bg-dark-blue dark:text-light-white py-2  mb-14 font-medium text-sm rounded"
+          to="/rest-countries-api-with-color-theme-switcher/"
+          className="flex justify-center items-center gap-3 dark:bg-dark-blue dark:text-light-white py-2  mb-14 font-medium text-sm rounded "
           relative="path"
           preventScrollReset={true}
         >
